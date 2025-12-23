@@ -1,84 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Tombola Cantata – Software per Eventi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tombola Cantata: tabellone, estrazione con MP3 e Karaoke, cartelle digitali su smartphone. Ideale per sagre, feste ed eventi.">
-  <link rel="icon" type="image/png" href="img/favicon.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tombola Cantata – Tombola Musicale Professionale</title>
+  <meta name="description" content="Tombola Cantata: tabellone grande, estrazione con MP3/Karaoke e cartelle su smartphone. Demo gratuita 15 giorni. Promo licenza annuale 49€ fino al 31 gennaio." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
   <style>
-    :root { --red:#dc2626; --ink:#111827; --bg:#f5f7fb; --card:#ffffff; }
-    body { font-family: Arial, Helvetica, sans-serif; margin:0; background:var(--bg); color:var(--ink); }
-    header { background:#111827; color:#fff; padding:40px 20px; }
-    .wrap { max-width:1100px; margin:0 auto; }
-    h1 { font-size:46px; margin:0 0 10px; }
-    .lead { font-size:18px; }
-    section { max-width:1100px; margin:40px auto; padding:0 20px; }
-    h2 { margin-bottom:10px; }
-    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
-    .card { background:#fff; border-radius:14px; padding:20px; box-shadow:0 10px 25px rgba(0,0,0,.1); }
-    .gallery img { width:100%; border-radius:14px; margin-bottom:22px; box-shadow:0 12px 30px rgba(0,0,0,.18); }
-    .cta { background:#111827; color:#fff; text-align:center; padding:40px 20px; }
-    .cta a { background:var(--red); color:#fff; padding:16px 26px; border-radius:999px; font-size:18px; text-decoration:none; }
-    footer { text-align:center; padding:20px; font-size:14px; color:#666; }
+    :root {
+      --bg: #ffffff;
+      --paper: #f6f7fb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: rgba(15,23,42,.10);
+      --card: rgba(255,255,255,.85);
+      --shadow: 0 18px 50px rgba(2,6,23,.10);
+      --shadow2: 0 10px 30px rgba(2,6,23,.08);
+      --r: 20px;
+      --red: #dc2626;
+      --red2:#ef4444;
+      --ok: #16a34a;
+    }
+    *{box-sizing:border-box}
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background: radial-gradient(900px 420px at 20% 0%, rgba(220,38,38,.08), transparent 55%), radial-gradient(850px 420px at 90% 10%, rgba(2,132,199,.08), transparent 55%), var(--bg); }
+    a { color:inherit; }
+    .wrap { max-width:1120px; margin:0 auto; padding:0 18px; }
+    .nav {
+      position: sticky; top:0; z-index:30;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.75);
+      border-bottom: 1px solid var(--line);
+    }
+    .navin { display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
+    .brand { display:flex; align-items:center; gap:12px; }
+    .brand img { width:40px; height:40px; border-radius:14px; background:#fff; border:1px solid var(--line); }
+    .brand .t1 { font-weight:950; letter-spacing:.2px; }
+    .brand .t2 { font-size:12px; color:var(--muted); }
+    .links { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+    .link { text-decoration:none; color:var(--muted); font-weight:700; font-size:14px; padding:8px 10px; border-radius:999px; }
+    .link:hover { background: rgba(15,23,42,.04); color: var(--ink); }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:999px; text-decoration:none; font-weight:900;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow2);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--red), var(--red2));
+      color:#fff; border-color: transparent;
+    }
+    .btn.primary:hover { filter: brightness(1.03); }
+    .btn.ghost:hover { background: rgba(15,23,42,.03); }
+    /* HERO */
+    header { padding: 34px 0 10px; }
+    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; align-items:center; }
+    .hcard {
+      background: rgba(255,255,255,.70);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--r) + 8px);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+    .glow {
+      position:absolute; inset:-2px;
+      background: radial-gradient(550px 220px at 20% 0%, rgba(220,38,38,.22), transparent 55%),
+                  radial-gradient(480px 220px at 90% 10%, rgba(2,132,199,.18), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+      filter: blur(10px);
+    }
+    .hcontent { position:relative; }
+    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,.85); font-weight:800; font-size:13px; color: var(--muted); }
+    h1 { margin:12px 0 10px; font-size:46px; line-height:1.05; letter-spacing:-.6px; }
+    .lead { margin:0 0 16px; color: var(--muted); font-size:18px; line-height:1.5; }
+    .badges { display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 18px; }
+    .badge { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.85); min-width: 220px; }
+    .dot { width:10px; height:10px; border-radius:50%; background: var(--ok); margin-top:4px; }
+    .btitle { font-weight:900; }
+    .bdesc { color:var(--muted); font-size:13px; margin-top:2px; }
+    .heroRight {
+      display:grid; gap:12px;
+    }
+    .mini {
+      background: rgba(255,255,255,.80);
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      padding: 16px;
+      box-shadow: var(--shadow2);
+    }
+    .mini h3 { margin:0 0 10px; font-size:15px; }
+    .step { display:flex; gap:10px; align-items:flex-start; margin:10px 0; }
+    .n { width:28px; height:28px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:950; color: var(--red); background: rgba(220,38,38,.10); border:1px solid rgba(220,38,38,.25); }
+    .step p { margin:0; color:var(--muted); font-size:14px; line-height:1.35; }
+    .callrow { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+    /* sections */
+    main { padding: 12px 0 54px; }
+    section { padding: 24px 0; }
+    .secTitle { display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom: 14px; }
+    h2 { margin:0; font-size:24px; letter-spacing:-.2px; }
+    .sub { margin:0; color:var(--muted); }
+    .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+    .card { background: rgba(255,255,255,.80); border:1px solid var(--line); border-radius: var(--r); padding:16px; box-shadow: var(--shadow2); }
+    .card .k { font-weight:950; }
+    .card .d { margin-top:6px; color:var(--muted); font-size:14px; line-height:1.45; }
+    .icon { width:34px; height:34px; border-radius:14px; display:flex; align-items:center; justify-content:center; background: rgba(15,23,42,.04); border:1px solid var(--line); margin-bottom:10px; }
+    /* showcase */
+    .shots { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .shot {
+      background:#fff;
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .shot img { width:100%; display:block; }
+    .cap { padding: 12px 14px; color: var(--muted); font-size:14px; }
+    /* pricing */
+    .prices { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .price { position:relative; background:#fff; border: 1px solid var(--line); border-radius: calc(var(--r) + 4px); box-shadow: var(--shadow); padding: 18px; overflow:hidden; }
+    .tag { position:absolute; top:16px; right:16px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:950; border:1px solid var(--line); background: rgba(255,255,255,.85); }
+    .tag.promo { border-color: rgba(220,38,38,.25); color: var(--red); background: rgba(220,38,38,.08); }
+    .big { font-size:40px; font-weight:1000; letter-spacing:-.8px; margin: 10px 0 6px; }
+    .strike { color:#94a3b8; text-decoration:line-through; margin-right:10px; font-weight:800; }
+    .fine { color: var(--muted); }
+    ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    li { margin: 6px 0; }
+    .deadline { margin-top: 12px; font-weight:950; color: var(--red); }
+    /* CTA band */
+    .cta {
+      background: linear-gradient(135deg, rgba(220,38,38,.10), rgba(2,132,199,.10));
+      border:1px solid var(--line);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--shadow2);
+    }
+    .cta .row { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+    .cta strong { font-weight:1000; }
+    /* footer */
+    footer { padding: 16px 0 34px; color:#64748b; font-size:14px; }
+    footer a { color:#64748b; }
+    /* floating */
+    .sticky { position:fixed; right:16px; bottom:16px; z-index:60; }
+    .fab { background: linear-gradient(135deg, var(--red), var(--red2)); color:#fff; text-decoration:none; font-weight:1000; padding:14px 16px; border-radius:999px; box-shadow: 0 18px 40px rgba(2,6,23,.20); display:inline-flex; gap:10px; align-items:center; }
+    .fab small { font-weight:850; opacity:.92; }
+    /* responsive */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      h1 { font-size:38px; }
+      .grid3 { grid-template-columns: 1fr; }
+      .shots { grid-template-columns: 1fr; }
+      .prices { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
+<div class="nav">
+  <div class="wrap navin">
+    <div class="brand">
+      <img src="img/favicon.png" alt="Logo" />
+      <div>
+        <div class="t1">TOMBOLA CANTATA</div>
+        <div class="t2">Software facile per tombola musicale</div>
+      </div>
+    </div>
+    <div class="links">
+      <a class="link" href="#funzioni">Funzioni</a>
+      <a class="link" href="#screenshot">Screenshot</a>
+      <a class="link" href="#prezzi">Prezzi</a>
+      <a class="btn ghost" href="Condizioni_Vendita_Tombola_Cantata.pdf">📄 Condizioni (PDF)</a>
+      <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
+
 <header>
-  <div class="wrap">
-    <h1>🎵 Tombola Cantata</h1>
-    <p class="lead">La tombola musicale per eventi e sagre<br>
-    con musica, karaoke e cartelle digitali</p>
+  <div class="wrap hero">
+    <div class="hcard">
+      <div class="glow"></div>
+      <div class="hcontent">
+        <span class="pill">🎁 Demo gratuita 15 giorni • max 3 eventi</span>
+        <h1>Una tombola <span style="color:var(--red);">professionale</span><br/>ma semplice da usare</h1>
+        <p class="lead">
+          Tabellone grande per TV/proiettore, estrazione con <b>MP3/Karaoke</b> e cartelle su <b>smartphone</b> (PIN/QR).
+          Perfetta per Pro Loco, parrocchie, associazioni ed eventi privati.
+        </p>
+        <div class="badges">
+          <div class="badge">
+            <div class="dot"></div>
+            <div><div class="btitle">Zero complicazioni</div><div class="bdesc">Interfaccia chiara, pensata per principianti.</div></div>
+          </div>
+          <div class="badge">
+            <div class="dot"></div>
+            <div><div class="btitle">Esperienza “show”</div><div class="bdesc">Musica e karaoke rendono l’evento più coinvolgente.</div></div>
+          </div>
+          <div class="badge">
+            <div class="dot"></div>
+            <div><div class="btitle">Meno carta</div><div class="bdesc">Cartelle digitali su smartphone: ordine e velocità.</div></div>
+          </div>
+        </div>
+        <div class="callrow">
+          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Richiedi la DEMO</a>
+          <a class="btn ghost" href="#prezzi">Vedi i prezzi</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="heroRight">
+      <div class="mini" id="come">
+        <h3>🚀 Come funziona (3 passi)</h3>
+        <div class="step"><div class="n">1</div><p>Mi scrivi su WhatsApp e ti mando la <b>DEMO</b>.</p></div>
+        <div class="step"><div class="n">2</div><p>La provi 15 giorni (max 3 eventi).</p></div>
+        <div class="step"><div class="n">3</div><p>Se ti piace, attivi la licenza annuale con un <b>codice</b>.</p></div>
+        <div style="margin-top:10px; font-size:12px; color:var(--muted);">* Demo: uso di prova, vietato eventi pubblici.</div>
+      </div>
+
+      <div class="mini">
+        <h3>💶 Promo in corso</h3>
+        <div style="font-weight:1000; font-size:28px; letter-spacing:-.6px;">
+          <span style="color:#94a3b8; text-decoration:line-through; margin-right:10px;">99 €</span>
+          <span style="color:var(--red);">49 €</span>
+        </div>
+        <div style="color:var(--muted); margin-top:6px;">Licenza annuale (12 mesi) • eventi illimitati</div>
+        <div style="margin-top:10px; font-weight:950; color:var(--red);">Valida fino al 31 gennaio</div>
+        <div style="margin-top:12px;">
+          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Attiva la licenza</a>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<section>
-  <h2>✨ Funzionalità principali</h2>
-  <div class="features">
-    <div class="card">🎯 Tabellone musicale a schermo intero</div>
-    <div class="card">🎶 Estrazione con MP3 e Karaoke</div>
-    <div class="card">📱 Cartelle digitali su smartphone</div>
-    <div class="card">🏆 Gestione automatica vincite</div>
-    <div class="card">📄 PDF cartelle + QR / PIN</div>
-    <div class="card">🧪 Demo gratuita 15 giorni</div>
+<main>
+  <div class="wrap">
+
+    <section id="funzioni">
+      <div class="secTitle">
+        <div>
+          <h2>Funzioni principali</h2>
+          <p class="sub">Tutto quello che serve per una tombola moderna e coinvolgente.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <div class="icon">🎯</div>
+          <div class="k">Tabellone grande</div>
+          <div class="d">Visualizzazione chiara su TV/proiettore. Numeri evidenziati in modo intuitivo.</div>
+        </div>
+        <div class="card">
+          <div class="icon">🎶</div>
+          <div class="k">Estrazione con MP3/Karaoke</div>
+          <div class="d">Rende la tombola uno spettacolo: musica e karaoke durante l’estrazione.</div>
+        </div>
+        <div class="card">
+          <div class="icon">📱</div>
+          <div class="k">Cartelle su smartphone</div>
+          <div class="d">I giocatori partecipano dal telefono con PIN/QR. Niente più carta e confusione.</div>
+        </div>
+        <div class="card">
+          <div class="icon">🏆</div>
+          <div class="k">Gestione premi</div>
+          <div class="d">Supporto a ambo, terno, cinquina e tombola con controlli rapidi.</div>
+        </div>
+        <div class="card">
+          <div class="icon">📄</div>
+          <div class="k">PDF cartelle</div>
+          <div class="d">Genera e stampa le cartelle in PDF, oppure distribuisci in digitale.</div>
+        </div>
+        <div class="card">
+          <div class="icon">🔐</div>
+          <div class="k">Licenza + watermark</div>
+          <div class="d">Protezione e personalizzazione. Attivazione rapida tramite codice.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screenshot">
+      <div class="secTitle">
+        <div>
+          <h2>Screenshot reali del software</h2>
+          <p class="sub">Immagini vere: quello che vedi è quello che usi durante l’evento.</p>
+        </div>
+      </div>
+
+      <div class="shots">
+        <div class="shot">
+          <img src="img/01_home.png" alt="Regia" />
+          <div class="cap">Regia semplice: controlli principali in un’unica schermata.</div>
+        </div>
+        <div class="shot">
+          <img src="img/02_tabellone.png" alt="Tabellone" />
+          <div class="cap">Tabellone a schermo intero: perfetto per TV e proiettore.</div>
+        </div>
+        <div class="shot">
+          <img src="img/03_estrazione.png" alt="Estrazione" />
+          <div class="cap">Estrazione e premi: gestione vincite (ambo/terno/cinquina/tombola).</div>
+        </div>
+        <div class="shot">
+          <img src="img/04_cartella_mobile.png" alt="Mobile" />
+          <div class="cap">Cartelle digitali: accesso da smartphone con PIN/QR.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="prezzi">
+      <div class="secTitle">
+        <div>
+          <h2>Prezzi e licenze</h2>
+          <p class="sub">Semplice: demo gratuita + licenza annuale in promo.</p>
+        </div>
+      </div>
+
+      <div class="prices">
+        <div class="price">
+          <div class="tag">GRATIS</div>
+          <div style="font-weight:1000; margin-top:18px;">🎁 Demo</div>
+          <div class="big">0 €</div>
+          <div class="fine">15 giorni • massimo 3 eventi</div>
+          <ul>
+            <li>Tutte le funzioni attive</li>
+            <li>Ideale per provare e imparare</li>
+            <li>Uso di prova (vietato eventi pubblici)</li>
+          </ul>
+          <div style="margin-top:14px;">
+            <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Richiedi la DEMO</a>
+          </div>
+        </div>
+
+        <div class="price">
+          <div class="tag promo">PROMO</div>
+          <div style="font-weight:1000; margin-top:18px;">⭐ Licenza annuale</div>
+          <div class="big"><span class="strike">99 €</span><span style="color:var(--red);">49 €</span></div>
+          <div class="fine"><b>12 mesi</b> • eventi illimitati</div>
+          <ul>
+            <li>Attivazione con codice</li>
+            <li>Watermark personalizzato</li>
+            <li>Assistenza base inclusa</li>
+          </ul>
+          <div class="deadline">Promo valida fino al 31 gennaio</div>
+          <div style="margin-top:14px;">
+            <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Attiva la licenza</a>
+            <a class="btn ghost" href="Condizioni_Vendita_Tombola_Cantata.pdf">Leggi condizioni</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta">
+        <div class="row">
+          <div>
+            <div style="font-weight:1000; font-size:20px;">Vuoi la DEMO? Te la mando su WhatsApp.</div>
+            <div style="margin-top:6px; color:var(--muted);">Scrivimi “DEMO Tombola Cantata” e ti invio tutto + istruzioni.</div>
+          </div>
+          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 Scrivimi ora</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="secTitle">
+        <div>
+          <h2>Domande frequenti</h2>
+          <p class="sub">Risposte rapide, senza tecnicismi.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card"><div class="k">Serve internet?</div><div class="d">No. Funziona offline. Internet serve solo per contattarmi e ricevere la demo.</div></div>
+        <div class="card"><div class="k">Come ricevo la demo?</div><div class="d">Mi scrivi su WhatsApp e te la invio con istruzioni semplici.</div></div>
+        <div class="card"><div class="k">La licenza vale su più PC?</div><div class="d">No, 1 PC. In caso di guasto si può richiedere il trasferimento.</div></div>
+      </div>
+    </section>
+
+    <footer>
+      © Tombola Cantata · <a href="Condizioni_Vendita_Tombola_Cantata.pdf">Condizioni di vendita (PDF)</a>
+    </footer>
+
   </div>
-</section>
+</main>
 
-<section class="gallery">
-  <h2>📸 Screenshot reali</h2>
-  <img src="img/01_home.png">
-  <img src="img/02_tabellone.png">
-  <img src="img/03_estrazione.png">
-  <img src="img/04_cartella_mobile.png">
-</section>
-
-<section>
-  <h2>💰 Prezzi e Licenze</h2>
-  <div class="features">
-    <div class="card">
-      <h3>🎁 Demo gratuita</h3>
-      <p><strong>0 €</strong></p>
-      <p>15 giorni – max 3 eventi<br>Uso di prova</p>
-    </div>
-    <div class="card">
-      <h3>⭐ Licenza Annuale</h3>
-      <p><del>99 €</del> <strong style="color:#dc2626;">49 €</strong></p>
-      <p>12 mesi – Eventi illimitati<br>
-      Promo valida fino al <strong>31 gennaio</strong></p>
-    </div>
-  </div>
-</section>
-
-<div class="cta">
-  <h2>📩 Provala ora</h2>
-  <p>Contattami su WhatsApp per demo o licenza</p>
-  <a href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F">💬 WhatsApp</a>
+<div class="sticky">
+  <a class="fab" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 WhatsApp <small>DEMO</small></a>
 </div>
-
-<footer>
-  © Tombola Cantata – Tutti i diritti riservati · <a href="Condizioni_Vendita_Tombola_Cantata.pdf" style="color:#6b7280;">Condizioni di vendita (PDF)</a>
-</footer>
 
 </body>
 </html>
