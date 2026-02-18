@@ -4,9 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>La Tombola™ Cantata | Software di tombola musicale professionale</title>
+  <title>La Tombola™ Cantata | Tombola musicale professionale per eventi</title>
   <link rel="canonical" href="https://bruce172-sys.github.io/tombola-cantata/" />
-
   <meta name="description" content="La Tombola™ Cantata è un software di tombola musicale per eventi, Pro Loco e associazioni: tabellone su TV, musica/karaoke e cartelle su smartphone. Demo 15 giorni." />
   <meta name="robots" content="index,follow" />
 
@@ -22,7 +21,11 @@
   <meta name="twitter:title" content="La Tombola™ Cantata" />
   <meta name="twitter:description" content="Software di tombola musicale per eventi: tabellone su TV, karaoke e cartelle su smartphone." />
 
-  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <!-- Favicons (metti i file nella root) -->
+  <!-- Compat: CSS ridotta per vecchi browser -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -44,18 +47,9 @@
     "operatingSystem":"Windows",
     "description":"Software di tombola musicale per eventi con tabellone su TV/proiettore, estrazione con MP3/Karaoke e cartelle su smartphone.",
     "offers":[
-      {
-        "@type":"Offer",
-        "name":"BASIC (evento singolo)",
-        "price":"20",
-        "priceCurrency":"EUR"
-      },
-      {
-        "@type":"Offer",
-        "name":"PRO (annuale)",
-        "price":"149",
-        "priceCurrency":"EUR"
-      }
+      {"@type":"Offer","name":"BASIC (evento singolo)","price":"20","priceCurrency":"EUR"},
+      {"@type":"Offer","name":"PRO (annuale)","price":"149","priceCurrency":"EUR"},
+      {"@type":"Offer","name":"PRO (mensile)","price":"20","priceCurrency":"EUR"}
     ]
   }
   </script>
@@ -85,8 +79,8 @@
     .wrap { max-width:1120px; margin:0 auto; padding:0 18px; }
 
     .nav {
-      position: sticky; top:0; z-index:30;
-      backdrop-filter: blur(10px);
+      position: relative;
+      
       background: rgba(255,255,255,.78);
       border-bottom: 1px solid var(--line);
     }
@@ -162,7 +156,7 @@
     .step p { margin:0; color:var(--muted); font-size:14px; line-height:1.35; }
     .callrow { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
 
-    main { padding: 12px 0 90px; }
+    main { padding: 12px 0 40px; }
     section { padding: 24px 0; }
     .secTitle { display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom: 14px; }
     h2 { margin:0; font-size:24px; letter-spacing:-.2px; }
@@ -195,23 +189,24 @@
       box-shadow: var(--shadow2);
     }
     .cta .row { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+
     footer { padding: 16px 0 34px; color:#64748b; font-size:14px; }
     footer a { color:#64748b; }
 
-    .sticky { position:fixed; right:16px; bottom:16px; z-index:60; }
+    .sticky { position: static; }
     .fab { background: linear-gradient(135deg, var(--red), var(--red2)); color:#fff; text-decoration:none; font-weight:1000; padding:14px 16px; border-radius:999px; box-shadow: 0 18px 40px rgba(2,6,23,.20); display:inline-flex; gap:10px; align-items:center; }
     .fab small { font-weight:850; opacity:.92; }
 
     .contactbar{
-      position:fixed;left:50%;transform:translateX(-50%);
-      bottom:14px;z-index:80;
+      position: static;
+      
       display:flex;gap:10px;align-items:center;flex-wrap:wrap;
       padding:10px 12px;border-radius:999px;
       background:rgba(255,255,255,.88);
       border:1px solid var(--line);
-      box-shadow: 0 18px 40px rgba(2,6,23,.14);
-      backdrop-filter: blur(10px);
-      max-width: calc(100vw - 24px);
+      
+      
+      
     }
     .contactbtn{
       display:inline-flex;align-items:center;gap:10px;
@@ -239,6 +234,7 @@
       background: rgba(255,255,255,.16);
       border-color: rgba(255,255,255,.20);
     }
+
     @media (max-width: 980px) {
       .hero { grid-template-columns: 1fr; }
       h1 { font-size:38px; }
@@ -256,7 +252,8 @@
 <div class="nav" role="navigation" aria-label="Menu principale">
   <div class="wrap navin">
     <a class="brand" href="#top" aria-label="Home La Tombola Cantata">
-      <img src="img/Marchio.png" alt="La Tombola™ Cantata" />
+      <!-- LOGO: metti l'immagine in img/logo.png (consigliato) -->
+      <img src="img/logo.png" alt="La Tombola™ Cantata" />
       <div>
         <div class="t1">LA TOMBOLA™ CANTATA</div>
         <div class="t2">Tombola musicale professionale per eventi</div>
@@ -278,7 +275,7 @@
     <div class="hcard">
       <div class="glow"></div>
       <div class="hcontent">
-        <span class="pill">🎁 Demo 15 giorni • max 3 eventi • perfetta per provare</span>
+        <span class="pill">🎁 Demo 15 giorni • max 3 eventi</span>
         <h1>La Tombola™ Cantata<br><span style="color:var(--red);">professionale</span> e semplice</h1>
         <p class="lead">
           Tabellone grande per TV/proiettore, estrazione con <b>MP3/Karaoke</b> e cartelle su <b>smartphone</b> (PIN/QR).
@@ -370,6 +367,10 @@
           <div class="cap">Cartelle digitali: accesso da smartphone con PIN/QR.</div>
         </div>
       </div>
+
+      <div style="margin-top:10px; color:var(--muted); font-size:12px; font-weight:800;">
+        * Se le immagini non si vedono, verifica che siano nella cartella <code>img/</code> con gli stessi nomi.
+      </div>
     </section>
 
     <section id="prezzi">
@@ -383,7 +384,7 @@
       <div class="prices3">
         <div class="price">
           <div class="tag">DEMO</div>
-          <div style="font-weight:1000; margin-top:18px;">🎁 Prova gratuita</div>
+          <div style="font-weight:1000; margin-top:18px;">🎁 Prova</div>
           <div class="big">0 €</div>
           <div class="fine">15 giorni • massimo 3 eventi</div>
           <ul>
@@ -413,7 +414,7 @@
 
         <div class="price">
           <div class="tag pro">PRO</div>
-          <div style="font-weight:1000; margin-top:18px;">⭐ Licenza professionale</div>
+          <div style="font-weight:1000; margin-top:18px;">⭐ Professionale</div>
           <div class="big"><span style="color:var(--red);">149 €</span></div>
           <div class="fine"><b>Annuale</b> • eventi illimitati</div>
           <div style="margin-top:6px; font-weight:950; color:var(--muted);">
@@ -459,53 +460,7 @@
       <div class="grid3">
         <div class="card"><div class="k">Serve internet?</div><div class="d">No. Funziona offline. Internet serve solo per contattarmi e ricevere la demo.</div></div>
         <div class="card"><div class="k">La licenza vale su più PC?</div><div class="d">Di norma 1 PC. In caso di guasto si può richiedere il trasferimento.</div></div>
-        <div class="card"><div class="k">Come acquisto?</div><div class="d">Mi scrivi su WhatsApp/email, ti invio istruzioni e poi ricevi il codice di attivazione.</div></div>
-      </div>
-    </section>
-
-    <section id="contatti">
-      <div class="secTitle">
-        <div>
-          <h2>Contattami</h2>
-          <p class="sub">Scrivi qui sotto e ti rispondo il prima possibile.</p>
-        </div>
-      </div>
-
-      <div class="card" style="padding:18px;">
-        <form name="contatti" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contatti" />
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-            <div>
-              <label style="display:block;font-weight:900;margin-bottom:6px;">Nome</label>
-              <input name="nome" required style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;" placeholder="Es. Marco Rossi" />
-            </div>
-            <div>
-              <label style="display:block;font-weight:900;margin-bottom:6px;">Email</label>
-              <input type="email" name="email" required style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;" placeholder="esempio@mail.com" />
-            </div>
-          </div>
-
-          <div style="margin-top:12px;">
-            <label style="display:block;font-weight:900;margin-bottom:6px;">Messaggio</label>
-            <textarea name="messaggio" required rows="5" style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;resize:vertical;" placeholder="Scrivi qui la tua richiesta (demo, licenza, info evento...)"></textarea>
-          </div>
-
-          <div style="margin-top:10px;">
-            <label style="font-size:13px; color:var(--muted); font-weight:800;">
-              <input type="checkbox" name="privacy_consent" required style="margin-right:6px;">
-              Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
-            </label>
-          </div>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;">
-            <button class="btn primary" type="submit" style="cursor:pointer;">Invia messaggio</button>
-            <span style="color:var(--muted);font-weight:800;font-size:13px;">Oppure usa WhatsApp dal pulsante in basso.</span>
-          </div>
-
-          <div style="margin-top:10px;color:var(--muted);font-size:12px;line-height:1.4;">
-            * Su GitHub Pages il modulo potrebbe non inviare i messaggi. Per sicurezza usa WhatsApp o email.
-          </div>
-        </form>
+        <div class="card"><div class="k">La demo ha tutte le funzioni?</div><div class="d">La demo è pensata per provare il flusso: alcune funzioni possono essere limitate.</div></div>
       </div>
     </section>
 
@@ -523,25 +478,5 @@
 
   </div>
 </main>
-
-<div class="sticky">
-  <a class="fab" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20la%20DEMO%20di%20LA%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20download%20e%20istruzioni%3F%20Grazie!">💬 WhatsApp <small>DEMO</small></a>
-</div>
-
-<div class="contactbar" role="contentinfo" aria-label="Contatti">
-  <a class="contactbtn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20informazioni%20su%20LA%20TOMBOLA%20CANTATA" aria-label="Contatta su WhatsApp">
-    <span class="ico" aria-hidden="true">💬</span>
-    WhatsApp
-  </a>
-  <a class="contactbtn" href="#contatti" aria-label="Vai al modulo contatti">
-    <span class="ico" aria-hidden="true">📝</span>
-    Contatti
-  </a>
-  <a class="contactbtn" href="mailto:bruce172@gmail.com?subject=Richiesta%20informazioni%20La%20Tombola%20Cantata" aria-label="Scrivi email">
-    <span class="ico" aria-hidden="true">✉️</span>
-    Scrivi email
-  </a>
-</div>
-
 </body>
 </html>
