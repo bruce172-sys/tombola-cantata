@@ -3,621 +3,115 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tombola Cantata – Tombola Musicale Professionale</title>
-  <meta name="description" content="Tombola Cantata: tabellone grande, estrazione con MP3/Karaoke e cartelle su smartphone. Demo gratuita 15 giorni. Promo licenza annuale 49€ fino al 31 gennaio." />
-  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <title>Privacy Policy – Tombola Cantata</title>
+  <meta name="description" content="Informativa Privacy (GDPR) del sito Tombola Cantata." />
   <style>
-    :root {
-      --bg: #ffffff;
-      --paper: #f6f7fb;
-      --ink: #0f172a;
-      --muted: #475569;
-      --line: rgba(15,23,42,.10);
-      --card: rgba(255,255,255,.85);
-      --shadow: 0 18px 50px rgba(2,6,23,.10);
-      --shadow2: 0 10px 30px rgba(2,6,23,.08);
-      --r: 20px;
-      --red: #dc2626;
-      --red2:#ef4444;
-      --ok: #16a34a;
+    :root{
+      --bg:#ffffff; --paper:#f6f7fb; --ink:#0f172a; --muted:#475569; --line:rgba(15,23,42,.10);
+      --shadow:0 18px 50px rgba(2,6,23,.10); --r:20px; --red:#dc2626;
     }
     *{box-sizing:border-box}
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background: radial-gradient(900px 420px at 20% 0%, rgba(220,38,38,.08), transparent 55%), radial-gradient(850px 420px at 90% 10%, rgba(2,132,199,.08), transparent 55%), var(--bg); }
-    a { color:inherit; }
-    .wrap { max-width:1120px; margin:0 auto; padding:0 18px; }
-    .nav {
-      position: sticky; top:0; z-index:30;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.75);
-      border-bottom: 1px solid var(--line);
-    }
-    .navin { display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:12px; }
-    .brand { display:flex; align-items:center; gap:12px; }
-    .brand img { width:40px; height:40px; border-radius:14px; background:#fff; border:1px solid var(--line); }
-    .brand .t1 { font-weight:950; letter-spacing:.2px; }
-    .brand .t2 { font-size:12px; color:var(--muted); }
-    .links { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
-    .link { text-decoration:none; color:var(--muted); font-weight:700; font-size:14px; padding:8px 10px; border-radius:999px; }
-    .link:hover { background: rgba(15,23,42,.04); color: var(--ink); }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 16px; border-radius:999px; text-decoration:none; font-weight:900;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.9);
-      box-shadow: var(--shadow2);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, var(--red), var(--red2));
-      color:#fff; border-color: transparent;
-    }
-    .btn.primary:hover { filter: brightness(1.03); }
-    .btn.ghost:hover { background: rgba(15,23,42,.03); }
-    /* HERO */
-    header { padding: 34px 0 10px; }
-    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; align-items:center; }
-    .hcard {
-      background: rgba(255,255,255,.70);
-      border: 1px solid var(--line);
-      border-radius: calc(var(--r) + 8px);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position: relative;
-    }
-    .glow {
-      position:absolute; inset:-2px;
-      background: radial-gradient(550px 220px at 20% 0%, rgba(220,38,38,.22), transparent 55%),
-                  radial-gradient(480px 220px at 90% 10%, rgba(2,132,199,.18), transparent 55%);
-      pointer-events:none;
-      opacity:.9;
-      filter: blur(10px);
-    }
-    .hcontent { position:relative; }
-    .pill { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,.85); font-weight:800; font-size:13px; color: var(--muted); }
-    h1 { margin:12px 0 10px; font-size:46px; line-height:1.05; letter-spacing:-.6px; }
-    .lead { margin:0 0 16px; color: var(--muted); font-size:18px; line-height:1.5; }
-    .badges { display:flex; flex-wrap:wrap; gap:10px; margin: 12px 0 18px; }
-    .badge { display:flex; gap:10px; align-items:flex-start; padding:10px 12px; border-radius:16px; border:1px solid var(--line); background: rgba(255,255,255,.85); min-width: 220px; }
-    .dot { width:10px; height:10px; border-radius:50%; background: var(--ok); margin-top:4px; }
-    .btitle { font-weight:900; }
-    .bdesc { color:var(--muted); font-size:13px; margin-top:2px; }
-    .heroRight {
-      display:grid; gap:12px;
-    }
-    .mini {
-      background: rgba(255,255,255,.80);
-      border:1px solid var(--line);
-      border-radius: var(--r);
-      padding: 16px;
-      box-shadow: var(--shadow2);
-    }
-    .mini h3 { margin:0 0 10px; font-size:15px; }
-    .step { display:flex; gap:10px; align-items:flex-start; margin:10px 0; }
-    .n { width:28px; height:28px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-weight:950; color: var(--red); background: rgba(220,38,38,.10); border:1px solid rgba(220,38,38,.25); }
-    .step p { margin:0; color:var(--muted); font-size:14px; line-height:1.35; }
-    .callrow { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
-    /* sections */
-    main { padding: 12px 0 90px; }
-    section { padding: 24px 0; }
-    .secTitle { display:flex; align-items:flex-end; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-bottom: 14px; }
-    h2 { margin:0; font-size:24px; letter-spacing:-.2px; }
-    .sub { margin:0; color:var(--muted); }
-    .grid3 { display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
-    .card { background: rgba(255,255,255,.80); border:1px solid var(--line); border-radius: var(--r); padding:16px; box-shadow: var(--shadow2); }
-    .card .k { font-weight:950; }
-    .card .d { margin-top:6px; color:var(--muted); font-size:14px; line-height:1.45; }
-    .icon { width:34px; height:34px; border-radius:14px; display:flex; align-items:center; justify-content:center; background: rgba(15,23,42,.04); border:1px solid var(--line); margin-bottom:10px; }
-    /* showcase */
-    .shots { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
-    .shot {
-      background:#fff;
-      border: 1px solid var(--line);
-      border-radius: var(--r);
-      overflow:hidden;
-      box-shadow: var(--shadow);
-    }
-    .shot img { width:100%; display:block; }
-    .cap { padding: 12px 14px; color: var(--muted); font-size:14px; }
-    /* pricing */
-    .prices { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
-    .price { position:relative; background:#fff; border: 1px solid var(--line); border-radius: calc(var(--r) + 4px); box-shadow: var(--shadow); padding: 18px; overflow:hidden; }
-    .tag { position:absolute; top:16px; right:16px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:950; border:1px solid var(--line); background: rgba(255,255,255,.85); }
-    .tag.promo { border-color: rgba(220,38,38,.25); color: var(--red); background: rgba(220,38,38,.08); }
-    .big { font-size:40px; font-weight:1000; letter-spacing:-.8px; margin: 10px 0 6px; }
-    .strike { color:#94a3b8; text-decoration:line-through; margin-right:10px; font-weight:800; }
-    .fine { color: var(--muted); }
-    ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
-    li { margin: 6px 0; }
-    .deadline { margin-top: 12px; font-weight:950; color: var(--red); }
-    /* CTA band */
-    .cta {
-      background: linear-gradient(135deg, rgba(220,38,38,.10), rgba(2,132,199,.10));
-      border:1px solid var(--line);
-      border-radius: 28px;
-      padding: 18px;
-      box-shadow: var(--shadow2);
-    }
-    .cta .row { display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
-    .cta strong { font-weight:1000; }
-    /* footer */
-    footer { padding: 16px 0 34px; color:#64748b; font-size:14px; }
-    footer a { color:#64748b; }
-    /* floating */
-    .sticky { position:fixed; right:16px; bottom:16px; z-index:60; }
-    .fab { background: linear-gradient(135deg, var(--red), var(--red2)); color:#fff; text-decoration:none; font-weight:1000; padding:14px 16px; border-radius:999px; box-shadow: 0 18px 40px rgba(2,6,23,.20); display:inline-flex; gap:10px; align-items:center; }
-    .fab small { font-weight:850; opacity:.92; }
-    /* responsive */
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      h1 { font-size:38px; }
-      .grid3 { grid-template-columns: 1fr; }
-      .shots { grid-template-columns: 1fr; }
-      .prices { grid-template-columns: 1fr; }
-    }
-  
-    /* fixed contact footer */
-    .contactbar{
-      position:fixed;left:50%;transform:translateX(-50%);
-      bottom:14px;z-index:80;
-      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-      padding:10px 12px;border-radius:999px;
-      background:rgba(255,255,255,.85);
-      border:1px solid var(--line);
-      box-shadow: 0 18px 40px rgba(2,6,23,.14);
-      backdrop-filter: blur(10px);
-      max-width: calc(100vw - 24px);
-    }
-    .contactbtn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:999px;
-      text-decoration:none;font-weight:950;
-      border:1px solid var(--line);
-      background:#fff;
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink);
-      white-space:nowrap;
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(220,38,38,.08), transparent 55%),
+        radial-gradient(850px 420px at 90% 10%, rgba(2,132,199,.08), transparent 55%),
+        var(--bg);
     }
-    .contactbtn:hover{ background: rgba(15,23,42,.03); }
-    .contactbtn.primary{
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--red), var(--red2));
-      color:#fff;
-    }
-    .ico{
-      width:26px;height:26px;border-radius:10px;
-      display:inline-flex;align-items:center;justify-content:center;
-      background: rgba(15,23,42,.04);
+    a{color:inherit}
+    .wrap{max-width:920px;margin:0 auto;padding:28px 18px 70px}
+    .card{
+      background:rgba(255,255,255,.88);
       border:1px solid var(--line);
-      font-size:14px;line-height:1;
+      border-radius: calc(var(--r) + 8px);
+      padding:22px;
+      box-shadow: var(--shadow);
     }
-    .contactbtn.primary .ico{
-      background: rgba(255,255,255,.16);
-      border-color: rgba(255,255,255,.20);
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      font-weight:900;font-size:13px;color:var(--muted);
     }
-    .contactmeta{
-      font-size:12px;color:var(--muted);font-weight:800;
-      margin-left:2px;margin-right:2px;
-    }
-    @media (max-width: 520px){
-      .contactmeta{ display:none; }
-      .contactbtn{ padding:10px 11px; }
-    }
-
-  </style>
+    h1{margin:10px 0 8px;font-size:34px;letter-spacing:-.4px}
+    h2{margin:22px 0 10px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.65}
+    .meta{font-size:13px;color:var(--muted);font-weight:800}
+    .back{display:inline-block;margin-top:16px}
+    code{background:rgba(15,23,42,.04);padding:2px 6px;border-radius:8px;border:1px solid var(--line)}
+</style>
 </head>
 <body>
-
-<div class="nav">
-  <div class="wrap navin">
-    <div class="brand">
-      <img src="img/favicon.png" alt="Logo" />
-      <div>
-        <div class="t1">TOMBOLA CANTATA</div>
-        <div class="t2">Software facile per tombola musicale</div>
-      </div>
-    </div>
-    <div class="links">
-      <a class="link" href="#funzioni">Funzioni</a>
-      <a class="link" href="#screenshot">Screenshot</a>
-      <a class="link" href="#prezzi">Prezzi</a>
-      <a class="btn ghost" href="Condizioni_Vendita_Tombola_Cantata.pdf">📄 Condizioni (PDF)</a>
-      <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 WhatsApp</a>
-    </div>
-  </div>
-</div>
-
-<header>
-  <div class="wrap hero">
-    <div class="hcard">
-      <div class="glow"></div>
-      <div class="hcontent">
-        <span class="pill">🎁 Demo gratuita 15 giorni • max 3 eventi</span>
-        <h1>Una tombola <span style="color:var(--red);">professionale</span><br/>ma semplice da usare</h1>
-        <p class="lead">
-          Tabellone grande per TV/proiettore, estrazione con <b>MP3/Karaoke</b> e cartelle su <b>smartphone</b> (PIN/QR).
-          Perfetta per Pro Loco, parrocchie, associazioni ed eventi privati.
-        </p>
-        <div class="badges">
-          <div class="badge">
-            <div class="dot"></div>
-            <div><div class="btitle">Zero complicazioni</div><div class="bdesc">Interfaccia chiara, pensata per principianti.</div></div>
-          </div>
-          <div class="badge">
-            <div class="dot"></div>
-            <div><div class="btitle">Esperienza “show”</div><div class="bdesc">Musica e karaoke rendono l’evento più coinvolgente.</div></div>
-          </div>
-          <div class="badge">
-            <div class="dot"></div>
-            <div><div class="btitle">Meno carta</div><div class="bdesc">Cartelle digitali su smartphone: ordine e velocità.</div></div>
-          </div>
-        </div>
-        <div class="callrow">
-          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Richiedi la DEMO</a>
-          <a class="btn ghost" href="#prezzi">Vedi i prezzi</a>
-        </div>
-          <div style="margin-top:6px; font-size:12px; color:var(--muted); font-weight:800;">⏱️ Risposta di solito entro 24 ore</div>
-      </div>
-    </div>
-
-    <div class="heroRight">
-      <div class="mini" id="come">
-        <h3>🚀 Come funziona (3 passi)</h3>
-        <div class="step"><div class="n">1</div><p>Mi scrivi su WhatsApp e ti mando la <b>DEMO</b>.</p></div>
-        <div class="step"><div class="n">2</div><p>La provi 15 giorni (max 3 eventi).</p></div>
-        <div class="step"><div class="n">3</div><p>Se ti piace, attivi la licenza annuale con un <b>codice</b>.</p></div>
-        <div style="margin-top:10px; font-size:12px; color:var(--muted);">* Demo utilizzabile per test e prove interne. Non valida per eventi a pagamento.</div>
-      </div>
-
-      <div class="mini">
-        <h3>💶 Promo in corso</h3>
-        <div style="font-weight:1000; font-size:28px; letter-spacing:-.6px;">
-          <span style="color:#94a3b8; text-decoration:line-through; margin-right:10px;">99 €</span>
-          <span style="color:var(--red);">49 €</span>
-        </div>
-        <div style="color:var(--muted); margin-top:6px;">Licenza annuale (12 mesi) • eventi illimitati</div>
-        <div style="margin-top:10px; font-weight:950; color:var(--red);">Valida fino al 31 gennaio</div>
-        <div style="margin-top:12px;">
-          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Attiva la licenza</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main>
   <div class="wrap">
+    <div class="card">
+      <div class="pill">🔒 Privacy Policy</div>
+      <h1>Privacy Policy – Tombola Cantata</h1>
+      <div class="meta">Ultimo aggiornamento: 18/02/2026</div>
 
-    <section id="funzioni">
-      <div class="secTitle">
-        <div>
-          <h2>Funzioni principali</h2>
-          <p class="sub">Tutto quello che serve per una tombola moderna e coinvolgente.</p>
-        </div>
-      </div>
+      <h2>1. Titolare del trattamento</h2>
+      <p>
+        Il titolare del trattamento è <b>Bevilacqua Massimiliano</b> (di seguito “Titolare”).<br>
+        P. IVA: <b>02090440492</b> · Regime forfettario<br>
+        Email: <a href="mailto:bruce172@gmail.com">bruce172@gmail.com</a>
+      </p>
 
-      <div class="grid3">
-        <div class="card">
-          <div class="icon">🎯</div>
-          <div class="k">Tabellone grande</div>
-          <div class="d">Visualizzazione chiara su TV/proiettore. Numeri evidenziati in modo intuitivo.</div>
-        </div>
-        <div class="card">
-          <div class="icon">🎶</div>
-          <div class="k">Estrazione con MP3/Karaoke</div>
-          <div class="d">Rende la tombola uno spettacolo: musica e karaoke durante l’estrazione.</div>
-        </div>
-        <div class="card">
-          <div class="icon">📱</div>
-          <div class="k">Cartelle su smartphone</div>
-          <div class="d">I giocatori partecipano dal telefono con PIN/QR. Niente più carta e confusione.</div>
-        </div>
-        <div class="card">
-          <div class="icon">🏆</div>
-          <div class="k">Gestione premi</div>
-          <div class="d">Supporto a ambo, terno, cinquina e tombola con controlli rapidi.</div>
-        </div>
-        <div class="card">
-          <div class="icon">📄</div>
-          <div class="k">PDF cartelle</div>
-          <div class="d">Genera e stampa le cartelle in PDF, oppure distribuisci in digitale.</div>
-        </div>
-        <div class="card">
-          <div class="icon">🔐</div>
-          <div class="k">Licenza + watermark</div>
-          <div class="d">Protezione e personalizzazione. Attivazione rapida tramite codice.</div>
-        </div>
-      </div>
-    </section>
+      <h2>2. Dati trattati</h2>
+      <p>Il sito può trattare le seguenti categorie di dati:</p>
+      <ul>
+        <li><b>Dati di contatto</b> forniti volontariamente (es. nome, email, contenuto del messaggio) tramite modulo contatti o email.</li>
+        <li><b>Dati tecnici di navigazione</b> (es. indirizzo IP, user-agent, log di sicurezza), necessari al funzionamento e alla sicurezza del sito.</li>
+      </ul>
 
-    <section id="screenshot">
-      <div class="secTitle">
-        <div>
-          <h2>Screenshot reali del software</h2>
-          <p class="sub">Immagini vere: quello che vedi è quello che usi durante l’evento.</p>
-        </div>
-      </div>
+      <h2>3. Finalità e base giuridica</h2>
+      <ul>
+        <li><b>Rispondere a richieste</b> di informazioni, demo e licenze (base giuridica: esecuzione di misure precontrattuali/contrattuali).</li>
+        <li><b>Adempimenti legali e fiscali</b> in caso di acquisto (base giuridica: obbligo di legge).</li>
+        <li><b>Sicurezza e prevenzione abusi</b> (base giuridica: legittimo interesse del Titolare).</li>
+      </ul>
 
-      <div class="shots">
-        <div class="shot">
-          <img src="img/01_home.png" alt="Regia" />
-          <div class="cap">Regia semplice: controlli principali in un’unica schermata.</div>
-        </div>
-        <div class="shot">
-          <img src="img/02_tabellone.png" alt="Tabellone" />
-          <div class="cap">Tabellone a schermo intero: perfetto per TV e proiettore.</div>
-        </div>
-        <div class="shot">
-          <img src="img/03_estrazione.png" alt="Estrazione" />
-          <div class="cap">Estrazione e premi: gestione vincite (ambo/terno/cinquina/tombola).</div>
-        </div>
-        <div class="shot">
-          <img src="img/04_cartella_mobile.png" alt="Mobile" />
-          <div class="cap">Cartelle digitali: accesso da smartphone con PIN/QR.</div>
-        </div>
-      </div>
-    </section>
+      <h2>4. Modalità di trattamento e conservazione</h2>
+      <p>
+        I dati sono trattati con strumenti informatici e misure di sicurezza adeguate.
+        I dati di contatto vengono conservati per il tempo necessario a gestire la richiesta e,
+        in caso di acquisto, per i tempi previsti dalla normativa civilistica e fiscale.
+      </p>
 
-    
-    <section id="affidabilita">
-      <div class="secTitle">
-        <div>
-          <h2>Affidabilità e trasparenza</h2>
-          <p class="sub">Un software semplice, ma con basi solide.</p>
-        </div>
-      </div>
+      <h2>5. Comunicazione a terzi</h2>
+      <p>
+        I dati possono essere comunicati a soggetti che forniscono servizi tecnici indispensabili
+        (es. hosting/fornitore email) o a soggetti a cui sia obbligatorio per legge (es. autorità).
+        Non vengono venduti dati a terzi.
+      </p>
 
-      <div class="grid3">
-        <div class="card">
-          <div class="icon">🔐</div>
-          <div class="k">Licenza chiara</div>
-          <div class="d">Una licenza annuale, nessun rinnovo automatico, nessun costo nascosto.</div>
-        </div>
-        <div class="card">
-          <div class="icon">📄</div>
-          <div class="k">Condizioni scritte</div>
-          <div class="d">Tutto è spiegato nel PDF di vendita, senza clausole ambigue.</div>
-        </div>
-        <div class="card">
-          <div class="icon">🤝</div>
-          <div class="k">Contatto diretto</div>
-          <div class="d">Parli sempre con chi ha sviluppato il software, senza call center.</div>
-        </div>
-      </div>
-    </section>
+      <h2>6. Trasferimenti extra UE</h2>
+      <p>
+        Alcuni fornitori tecnici potrebbero avere infrastrutture anche fuori dallo Spazio Economico Europeo.
+        In tal caso, il trattamento avviene nel rispetto del GDPR (es. decisioni di adeguatezza o clausole contrattuali standard).
+      </p>
 
+      <h2>7. Diritti dell’interessato</h2>
+      <p>
+        Hai diritto di chiedere al Titolare accesso, rettifica, cancellazione, limitazione, opposizione,
+        portabilità dei dati (nei casi previsti) e di proporre reclamo al Garante per la protezione dei dati personali.
+        Per esercitare i diritti: <a href="mailto:bruce172@gmail.com">bruce172@gmail.com</a>.
+      </p>
 
-    <section id="prezzi">
-      <div class="secTitle">
-        <div>
-          <h2>Prezzi e licenze</h2>
-          <p class="sub">Semplice: demo gratuita + licenza annuale in promo.</p>
-        </div>
-      </div>
+      <h2>8. Cookie</h2>
+      <p>
+        Il sito utilizza cookie tecnici. Per maggiori informazioni consulta la
+        <a href="cookie_policy.html">Cookie Policy</a>.
+      </p>
 
-      <div class="prices">
-        <div class="price">
-          <div class="tag">GRATIS</div>
-          <div style="font-weight:1000; margin-top:18px;">🎁 Demo</div>
-          <div class="big">0 €</div>
-          <div class="fine">15 giorni • massimo 3 eventi</div>
-          <ul>
-            <li>Tutte le funzioni attive</li>
-            <li>Ideale per provare e imparare</li>
-            <li>Uso di prova (vietato eventi pubblici)</li>
-          </ul>
-          <div style="margin-top:14px;">
-            <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Richiedi la DEMO</a>
-          </div>
-        </div>
+      <h2>9. Minori</h2>
+      <p>
+        Il sito non è destinato a minori di 14 anni. Se ritieni che un minore abbia inviato dati personali,
+        contattaci per la rimozione.
+      </p>
 
-        <div class="price">
-          <div class="tag promo">PROMO</div>
-          <div style="font-weight:1000; margin-top:18px;">⭐ Licenza annuale</div>
-          <div class="big"><span class="strike">99 €</span><span style="color:var(--red);">49 €</span></div>
-          <div class="fine"><b>12 mesi</b> • eventi illimitati</div>
-          <ul>
-            <li>Attivazione con codice</li>
-            <li>Watermark personalizzato</li>
-            <li>Assistenza base inclusa</li>
-          </ul>
-          <div class="deadline">Promo valida fino al 31 gennaio<div id="promoCountdown" style="margin-top:10px;font-weight:950;color:var(--red);">Promo termina tra: calcolo…</div></div>
-          <div style="margin-top:14px;">
-            <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">Attiva la licenza</a>
-            <a class="btn ghost" href="Condizioni_Vendita_Tombola_Cantata.pdf">Leggi condizioni</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="cta">
-        <div class="row">
-          <div>
-            <div style="font-weight:1000; font-size:20px;">Vuoi la DEMO? Te la mando su WhatsApp.</div>
-            <div style="margin-top:6px; color:var(--muted);">Scrivimi “DEMO Tombola Cantata” e ti invio tutto + istruzioni.</div>
-          </div>
-          <div>
-          <a class="btn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 Scrivimi ora</a>
-          <div style="margin-top:6px; font-size:12px; color:var(--muted); font-weight:800;">⏱️ Risposta di solito entro 24 ore</div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    
-
-<section id="testimonianze">
-  <div class="secTitle">
-    <div>
-      <h2>Cosa dicono gli organizzatori e i privati</h2>
-      <p class="sub">Esperienze di associazioni, feste locali e utenti privati.</p>
-  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 18px;">
-    <div style="display:flex;gap:4px;font-size:18px;line-height:1;">
-      <span aria-hidden="true">⭐</span><span aria-hidden="true">⭐</span><span aria-hidden="true">⭐</span><span aria-hidden="true">⭐</span><span aria-hidden="true">⭐</span>
-    </div>
-    <div style="color:var(--muted);font-weight:800;">
-      Valutazione media molto alta (feedback raccolti via WhatsApp)
+      <a class="back" href="index.html">← Torna al sito</a>
     </div>
   </div>
-
-    </div>
-  </div>
-
-  <div class="grid3">
-    <div class="card"><div class="k">Pro Loco San Marco</div><div class="d">“Finalmente una tombola semplice. In 10 minuti era tutto pronto.”</div></div>
-    <div class="card"><div class="k">Parrocchia Santa Rita</div><div class="d">“Cartelle su smartphone comodissime, meno confusione e più ordine.”</div></div>
-    <div class="card"><div class="k">Associazione Amici in Festa</div><div class="d">“La musica durante l’estrazione ha coinvolto tutti.”</div></div>
-    <div class="card"><div class="k">Marco Rossi</div><div class="d">“L’ho usata per una festa di compleanno: facilissima e divertente.”</div></div>
-    <div class="card"><div class="k">Laura Bianchi</div><div class="d">“Anche chi non è pratico capisce subito come funziona.”</div></div>
-    <div class="card"><div class="k">Oratorio Don Bosco</div><div class="d">“I ragazzi seguivano la tombola cantando, bellissima idea.”</div></div>
-    <div class="card"><div class="k">Giuseppe Verdi</div><div class="d">“Tabellone grande e chiaro, visibile da tutta la sala.”</div></div>
-    <div class="card"><div class="k">Circolo Ricreativo Aurora</div><div class="d">“Grafica pulita e gestione premi molto comoda.”</div></div>
-    <div class="card"><div class="k">Anna Ferretti</div><div class="d">“Installata e usata la stessa sera, senza problemi.”</div></div>
-    <div class="card"><div class="k">Comitato Festa Patronale</div><div class="d">“Ha reso la tombola più moderna e coinvolgente.”</div></div>
-  </div>
-</section>
-
-
-
-<section id="faq">
-      <div class="secTitle">
-        <div>
-          <h2>Domande frequenti</h2>
-          <p class="sub">Risposte rapide, senza tecnicismi.</p>
-        </div>
-      </div>
-
-      <div class="grid3">
-        <div class="card"><div class="k">Serve internet?</div><div class="d">No. Funziona offline. Internet serve solo per contattarmi e ricevere la demo.</div></div>
-        <div class="card"><div class="k">Come ricevo la demo?</div><div class="d">Mi scrivi su WhatsApp e te la invio con istruzioni semplici.</div></div>
-        <div class="card"><div class="k">La licenza vale su più PC?</div><div class="d">No, 1 PC. In caso di guasto si può richiedere il trasferimento.</div></div>
-      </div>
-    </section>
-
-    
-<section id="contatti">
-  <div class="secTitle">
-    <div>
-      <h2>Contattami</h2>
-      <p class="sub">Scrivi qui sotto e ti rispondo il prima possibile.</p>
-    </div>
-  </div>
-
-  <div class="card" style="padding:18px;">
-    <form name="contatti" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="contatti" />
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-        <div>
-          <label style="display:block;font-weight:900;margin-bottom:6px;">Nome</label>
-          <input name="nome" required
-                 style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;"
-                 placeholder="Es. Marco Rossi" />
-        </div>
-        <div>
-          <label style="display:block;font-weight:900;margin-bottom:6px;">Email</label>
-          <input type="email" name="email" required
-                 style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;"
-                 placeholder="esempio@mail.com" />
-        </div>
-      </div>
-
-      <div style="margin-top:12px;">
-        <label style="display:block;font-weight:900;margin-bottom:6px;">Messaggio</label>
-        <textarea name="messaggio" required rows="5"
-                  style="width:100%;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:14px;resize:vertical;"
-                  placeholder="Scrivi qui la tua richiesta (demo, licenza, info evento...)"></textarea>
-      </div>
-      <div style="margin-top:10px;">
-        <label style="font-size:13px; color:var(--muted); font-weight:800;">
-          <input type="checkbox" name="privacy_consent" required style="margin-right:6px;">
-          Ho letto e accetto la <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>
-        </label>
-      </div>
-
-
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;">
-        <button class="btn primary" type="submit" style="cursor:pointer;">Invia messaggio</button>
-        <span style="color:var(--muted);font-weight:800;font-size:13px;">Oppure usa WhatsApp dal pulsante in basso.</span>
-      </div>
-
-      <div style="margin-top:10px;color:var(--muted);font-size:12px;line-height:1.4;">
-        * Il modulo funziona con <b>Netlify Forms</b>. Se non ricevi risposta, usa “Scrivi email” o WhatsApp.
-      </div>
-    </form>
-  </div>
-</section>
-
-
-
-<footer>
-  © Tombola Cantata · Tutti i diritti riservati<br>
-  Sviluppatore e titolare del software: <b>Bevilacqua Massimiliano</b><br>
-Persona fisica non soggetta a P. IVA<br>
-  Email: <a href="mailto:bruce172@gmail.com">bruce172@gmail.com</a><br>
-  <a href="Condizioni_Vendita_Tombola_Cantata.pdf">Condizioni di vendita (PDF)</a> ·
-  <a href="privacy.html">Privacy Policy</a>
-</footer>
-
-
-  </div>
-</main>
-
-<div class="sticky">
-  <a class="fab" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20provare%20TOMBOLA%20CANTATA.%0APuoi%20mandarmi%20la%20demo%20o%20le%20informazioni%20per%20la%20licenza%3F%0AGrazie!">💬 WhatsApp <small>DEMO</small></a>
-</div>
-
-
-<script>
-(function () {
-  // Promo fino al 31 gennaio 2026, 23:59 (ora italiana)
-  const end = new Date("2026-01-31T23:59:59+01:00").getTime();
-  const el = document.getElementById("promoCountdown");
-  if (!el) return;
-
-  function tick() {
-    const now = Date.now();
-    let diff = end - now;
-
-    if (diff <= 0) {
-      el.textContent = "Promo terminata";
-      return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= d * (1000 * 60 * 60 * 24);
-    const h = Math.floor(diff / (1000 * 60 * 60));
-    diff -= h * (1000 * 60 * 60);
-    const m = Math.floor(diff / (1000 * 60));
-    diff -= m * (1000 * 60);
-    const s = Math.floor(diff / 1000);
-
-    el.textContent = `Promo termina tra: ${d}g ${h}h ${m}m ${s}s`;
-    setTimeout(tick, 1000);
-  }
-
-  tick();
-})();
-</script>
-
-
-
-
-<div class="contactbar" role="contentinfo" aria-label="Contatti">
-  <a class="contactbtn primary" href="https://wa.me/393791852714?text=Ciao%2C%20vorrei%20informazioni%20su%20TOMBOLA%20CANTATA" aria-label="Contatta su WhatsApp">
-    <span class="ico" aria-hidden="true">💬</span>
-    WhatsApp
-  </a>
-  <a class="contactbtn" href="#contatti" aria-label="Vai al modulo contatti">
-    <span class="ico" aria-hidden="true">📝</span>
-    Contatti
-  </a>
-  <a class="contactbtn" href="mailto:bruce172@gmail.com?subject=Richiesta%20informazioni%20Tombola%20Cantata" aria-label="Scrivi email">
-    <span class="ico" aria-hidden="true">✉️</span>
-    Scrivi email
-  </a>
-</div>
 </body>
-
-
-
 </html>
