@@ -1,1 +1,117 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Privacy Policy – Tombola Cantata</title>
+  <meta name="description" content="Informativa Privacy (GDPR) del sito Tombola Cantata." />
+  <style>
+    :root{
+      --bg:#ffffff; --paper:#f6f7fb; --ink:#0f172a; --muted:#475569; --line:rgba(15,23,42,.10);
+      --shadow:0 18px 50px rgba(2,6,23,.10); --r:20px; --red:#dc2626;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(220,38,38,.08), transparent 55%),
+        radial-gradient(850px 420px at 90% 10%, rgba(2,132,199,.08), transparent 55%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:920px;margin:0 auto;padding:28px 18px 70px}
+    .card{
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      border-radius: calc(var(--r) + 8px);
+      padding:22px;
+      box-shadow: var(--shadow);
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;border:1px solid var(--line);
+      background: rgba(255,255,255,.92);
+      font-weight:900;font-size:13px;color:var(--muted);
+    }
+    h1{margin:10px 0 8px;font-size:34px;letter-spacing:-.4px}
+    h2{margin:22px 0 10px;font-size:18px}
+    p,li{color:var(--muted);line-height:1.65}
+    .meta{font-size:13px;color:var(--muted);font-weight:800}
+    .back{display:inline-block;margin-top:16px}
+    code{background:rgba(15,23,42,.04);padding:2px 6px;border-radius:8px;border:1px solid var(--line)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="pill">🔒 Privacy Policy</div>
+      <h1>Privacy Policy – Tombola Cantata</h1>
+      <div class="meta">Ultimo aggiornamento: 18/02/2026</div>
 
+      <h2>1. Titolare del trattamento</h2>
+      <p>
+        Il titolare del trattamento è <b>Bevilacqua Massimiliano</b> (di seguito “Titolare”).<br>
+        P. IVA: <b>02090440492</b> · Regime forfettario<br>
+        Email: <a href="mailto:bruce172@gmail.com">bruce172@gmail.com</a>
+      </p>
+
+      <h2>2. Dati trattati</h2>
+      <p>Il sito può trattare le seguenti categorie di dati:</p>
+      <ul>
+        <li><b>Dati di contatto</b> forniti volontariamente (es. nome, email, contenuto del messaggio) tramite modulo contatti o email.</li>
+        <li><b>Dati tecnici di navigazione</b> (es. indirizzo IP, user-agent, log di sicurezza), necessari al funzionamento e alla sicurezza del sito.</li>
+      </ul>
+
+      <h2>3. Finalità e base giuridica</h2>
+      <ul>
+        <li><b>Rispondere a richieste</b> di informazioni, demo e licenze (base giuridica: esecuzione di misure precontrattuali/contrattuali).</li>
+        <li><b>Adempimenti legali e fiscali</b> in caso di acquisto (base giuridica: obbligo di legge).</li>
+        <li><b>Sicurezza e prevenzione abusi</b> (base giuridica: legittimo interesse del Titolare).</li>
+      </ul>
+
+      <h2>4. Modalità di trattamento e conservazione</h2>
+      <p>
+        I dati sono trattati con strumenti informatici e misure di sicurezza adeguate.
+        I dati di contatto vengono conservati per il tempo necessario a gestire la richiesta e,
+        in caso di acquisto, per i tempi previsti dalla normativa civilistica e fiscale.
+      </p>
+
+      <h2>5. Comunicazione a terzi</h2>
+      <p>
+        I dati possono essere comunicati a soggetti che forniscono servizi tecnici indispensabili
+        (es. hosting/fornitore email) o a soggetti a cui sia obbligatorio per legge (es. autorità).
+        Non vengono venduti dati a terzi.
+      </p>
+
+      <h2>6. Trasferimenti extra UE</h2>
+      <p>
+        Alcuni fornitori tecnici potrebbero avere infrastrutture anche fuori dallo Spazio Economico Europeo.
+        In tal caso, il trattamento avviene nel rispetto del GDPR (es. decisioni di adeguatezza o clausole contrattuali standard).
+      </p>
+
+      <h2>7. Diritti dell’interessato</h2>
+      <p>
+        Hai diritto di chiedere al Titolare accesso, rettifica, cancellazione, limitazione, opposizione,
+        portabilità dei dati (nei casi previsti) e di proporre reclamo al Garante per la protezione dei dati personali.
+        Per esercitare i diritti: <a href="mailto:bruce172@gmail.com">bruce172@gmail.com</a>.
+      </p>
+
+      <h2>8. Cookie</h2>
+      <p>
+        Il sito utilizza cookie tecnici. Per maggiori informazioni consulta la
+        <a href="cookie_policy.html">Cookie Policy</a>.
+      </p>
+
+      <h2>9. Minori</h2>
+      <p>
+        Il sito non è destinato a minori di 14 anni. Se ritieni che un minore abbia inviato dati personali,
+        contattaci per la rimozione.
+      </p>
+
+      <a class="back" href="index.html">← Torna al sito</a>
+    </div>
+  </div>
+</body>
+</html>
